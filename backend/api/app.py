@@ -87,12 +87,16 @@ import mediapipe as mp
 import numpy as np
 import pandas as pd
 import base64
+import os
+
+
+
 from flask_cors import CORS
 from flask_bcrypt import Bcrypt
 from flask_jwt_extended import JWTManager
 from scipy.spatial.distance import euclidean
-from routes import auth_bp  # ✅ FIXED Import
-from config import JWT_SECRET  # ✅ FIXED Import
+from .routes import auth_bp  # ✅ FIXED Import
+from .config import JWT_SECRET  # ✅ FIXED Import
 
 app = Flask(__name__)
 CORS(app)
@@ -101,8 +105,13 @@ CORS(app)
 app.config["JWT_SECRET_KEY"] = JWT_SECRET
 jwt = JWTManager(app)
 
+# ✅ Get the absolute path of the current directory (`api`)
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  
+
+# ✅ Update CSV path to point to `api/models/refrence_gestures.csv`
+CSV_PATH = os.path.join(BASE_DIR, "models", "refrence_gestures.csv")
+
 # ✅ Load the reference gestures
-CSV_PATH = "./models/refrence_gestures.csv"
 reference_df = pd.read_csv(CSV_PATH)
 
 # ✅ Load MediaPipe Hands Model
