@@ -1,0 +1,10 @@
+flask
+flask-cors
+flask-bcrypt
+flask-jwt-extended
+numpy
+opencv-python-headless
+mediapipe
+pandas
+scipy
+gunicorn  # Required for deployment

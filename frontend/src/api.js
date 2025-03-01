@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://127.0.0.1:5000";
+const API_URL = "https://gesture-talk-ai-backend.vercel.app";
 
 // ✅ Sign Up API Call
 export const signupUser = async (email, password) => {
