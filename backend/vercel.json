@@ -1,6 +1,18 @@
 {
   "version": 2,
-  "builds": [{ "src": "backend/api/app.py", "use": "@vercel/python" }],
-  "routes": [{ "src": "/.*", "dest": "backend/api/app.py" }]
-
+  "builds": [
+    {
+      "src": "backend/api/app.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "backend/api/app.py"
+    }
+  ],
+  "env": {
+    "PYTHONUNBUFFERED": "1"
+  }
 }
