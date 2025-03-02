@@ -1,5 +1,5 @@
-from config import users_collection
-from app import bcrypt  # Use shared bcrypt instance
+from .config import users_collection
+from .extensions import bcrypt  # ✅ Import bcrypt from extensions.py
 
 def create_user(email, password):
     hashed_password = bcrypt.generate_password_hash(password).decode("utf-8")
