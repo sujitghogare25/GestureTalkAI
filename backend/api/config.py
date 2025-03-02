@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # ✅ MongoDB Connection (SECURED)
-MONGO_URL = os.getenv("MONGO_URI")
+MONGO_URL = os.getenv("MONGO_URL")
 client = MongoClient(MONGO_URL)
 db = client["auth_db"]
 users_collection = db["users"]
