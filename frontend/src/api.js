@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_URL = "http://127.0.0.1:5000";
+const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:5000";
 
 // ✅ Sign Up API Call
 export const signupUser = async (email, password) => {
@@ -11,7 +11,7 @@ export const signupUser = async (email, password) => {
     });
     return response.data;
   } catch (error) {
-    return { error: error.response.data.message };
+    return { error: error.response?.data?.message || "An error occurred" };
   }
 };
 
@@ -24,7 +24,7 @@ export const loginUser = async (email, password) => {
     });
     return response.data;
   } catch (error) {
-    return { error: error.response.data.message };
+    return { error: error.response?.data?.message || "An error occurred" };
   }
 };
 
