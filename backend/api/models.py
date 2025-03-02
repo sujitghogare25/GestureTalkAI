@@ -1,4 +1,4 @@
-from .config import users_collection  # ✅ FIXED: Use relative import
+from config import users_collection  # ✅ FIXED: Changed to absolute import
 from flask_bcrypt import Bcrypt
 
 bcrypt = Bcrypt()

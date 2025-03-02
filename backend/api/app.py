@@ -80,7 +80,6 @@
 # if __name__ == "__main__":
 #     app.run(debug=True)
 
-
 from flask import Flask, request, jsonify
 import cv2
 import mediapipe as mp
@@ -88,15 +87,12 @@ import numpy as np
 import pandas as pd
 import base64
 import os
-
-
-
 from flask_cors import CORS
 from flask_bcrypt import Bcrypt
 from flask_jwt_extended import JWTManager
 from scipy.spatial.distance import euclidean
-from .routes import auth_bp  # ✅ FIXED Import
-from .config import JWT_SECRET  # ✅ FIXED Import
+from routes import auth_bp  # ✅ Changed from ".routes" to "routes"
+from config import JWT_SECRET  # ✅ Changed from ".config" to "config"
 
 app = Flask(__name__)
 CORS(app)
@@ -175,4 +171,3 @@ def handler(event, context):
 # ✅ Run Flask App (Locally)
 if __name__ == "__main__":
     app.run(debug=True)
-
