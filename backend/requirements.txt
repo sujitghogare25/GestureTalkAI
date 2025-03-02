@@ -9,3 +9,5 @@ pandas
 scipy
 gunicorn
 pymongo
+python-dotenv
+mangum

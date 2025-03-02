@@ -1,7 +1,5 @@
-from config import users_collection  # ✅ FIXED: Changed to absolute import
-from flask_bcrypt import Bcrypt
-
-bcrypt = Bcrypt()
+from config import users_collection
+from app import bcrypt  # Use shared bcrypt instance
 
 def create_user(email, password):
     hashed_password = bcrypt.generate_password_hash(password).decode("utf-8")

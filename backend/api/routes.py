@@ -1,10 +1,9 @@
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity
-from models import create_user, find_user_by_email  # ✅ Changed from `.models` to `models`
-from flask_bcrypt import Bcrypt
+from models import create_user, find_user_by_email
+from app import bcrypt  # Use shared bcrypt instance
 import datetime
 
-bcrypt = Bcrypt()
 auth_bp = Blueprint("auth", __name__)
 
 @auth_bp.route("/signup", methods=["POST"])

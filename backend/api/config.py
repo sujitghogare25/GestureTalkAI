@@ -1,10 +1,15 @@
+import os
 from pymongo import MongoClient
+from dotenv import load_dotenv
 
-# MongoDB Connection
-MONGO_URI = "mongodb+srv://user1234:XbdbZemtQEr9a1Jl@cluster0.ktwke.mongodb.net/"
+# ✅ Load environment variables
+load_dotenv()
+
+# ✅ MongoDB Connection (SECURED)
+MONGO_URI = os.getenv("MONGO_URI")
 client = MongoClient(MONGO_URI)
 db = client["auth_db"]
 users_collection = db["users"]
 
-# Secret key for JWT
-JWT_SECRET = "GestureTalkAI"
+# ✅ Secret key for JWT
+JWT_SECRET = os.getenv("JWT_SECRET")
