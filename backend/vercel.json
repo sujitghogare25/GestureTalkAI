@@ -3,7 +3,7 @@
   "builds": [{ "src": "api/app.py", "use": "@vercel/python" }],
   "routes": [{ "src": "/.*", "dest": "api/app.py" }],
   "env": {
-    "MONGO_URI": "@mongo_uri",
+    "MONGO_URL": "@mongo_url",
     "JWT_SECRET": "@jwt_secret"
   }
 }
