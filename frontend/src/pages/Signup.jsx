@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { signupUser } from "../api";
+
 import {
   TextField,
   Button,
@@ -21,11 +23,17 @@ const Signup = () => {
 
   const handleSignup = async (e) => {
     e.preventDefault();
-    // Fake signup logic (replace with API call)
+    
     if (!email || !password) {
       setError("Please fill all fields!");
       return;
     }
+
+    const response = await signupUser(email, password);
+    if (response.error) {
+       setError(response.error)
+     } 
+
     navigate("/login");
   };
 
